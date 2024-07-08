@@ -1,0 +1,7 @@
+## Files
+pnpm-lock.yaml
+
+## Directories
+.netlify
+.next
+node_modules
