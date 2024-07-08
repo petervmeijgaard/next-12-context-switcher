@@ -1,9 +1,13 @@
 import Head from "next/head";
-import { initializeEnvironment } from "../helpers/runtime-env";
-import { MyComponent } from "../components/MyComponent";
+import { defineContext } from "@acme/contextify";
+import { MyComponent } from "@acme/my-component";
+
+const context = defineContext({
+	browserPrefix: "NEXT_PUBLIC",
+});
 
 export async function getServerSideProps() {
-	await initializeEnvironment("test");
+	context.initialize();
 
 	return {
 		props: {},

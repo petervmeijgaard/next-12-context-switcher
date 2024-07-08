@@ -1,5 +1,5 @@
 import { Html, Main, NextScript, Head } from "next/document";
-import { RuntimeScript } from "../helpers/RuntimeEnv";
+import { ContextifyScript } from "@acme/contextify";
 
 export default function Document() {
 	return (
@@ -7,7 +7,7 @@ export default function Document() {
 			<Head />
 			<body>
 				<Main />
-				<RuntimeScript />
+				<ContextifyScript />
 				<NextScript />
 			</body>
 		</Html>

@@ -1,7 +1,6 @@
 {
 	"name": "acme",
 	"private": true,
-	"title": "Sombrero monorepo",
 	"description": "A monorepo to illustrate the context switcher",
 	"license": "MIT",
 	"scripts": {
