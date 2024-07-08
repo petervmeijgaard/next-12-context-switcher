@@ -1,0 +1,17 @@
+{
+	"ui": "tui",
+	"tasks": {
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"build": {
+			"dependsOn": ["^build"]
+		},
+		"start": {
+			"cache": false,
+			"persistent": true
+		},
+		"lint": {}
+	}
+}

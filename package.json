@@ -1,27 +1,18 @@
 {
-	"name": "new-next-app-12-env",
-	"version": "0.1.0",
+	"name": "acme",
 	"private": true,
+	"title": "Sombrero monorepo",
+	"description": "A monorepo to illustrate the context switcher",
+	"license": "MIT",
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"start": "turbo start",
+		"lint": "turbo lint",
 		"format": "prettier --check --cache ."
 	},
+	"packageManager": "pnpm@8.15.8",
 	"dependencies": {
-		"next": "^12.3.4",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
-	},
-	"devDependencies": {
-		"@types/node": "^20.14.9",
-		"@types/react": "^17.0.80",
-		"@types/react-dom": "^17.0.25",
-		"eslint": "^8.57.0",
-		"eslint-config-next": "^12.3.4",
-		"prettier": "^3.3.2",
-		"typescript": "^5.5.2"
-	},
-	"packageManager": "pnpm@8.15.8"
+		"turbo": "^2.0.6"
+	}
 }

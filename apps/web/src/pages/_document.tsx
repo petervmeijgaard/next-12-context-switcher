@@ -1,4 +1,5 @@
 import { Html, Main, NextScript, Head } from "next/document";
+import { RuntimeScript } from "../helpers/RuntimeEnv";
 
 export default function Document() {
 	return (
@@ -6,6 +7,7 @@ export default function Document() {
 			<Head />
 			<body>
 				<Main />
+				<RuntimeScript />
 				<NextScript />
 			</body>
 		</Html>
