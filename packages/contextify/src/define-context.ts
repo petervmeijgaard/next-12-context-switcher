@@ -17,8 +17,8 @@ export function defineContext(params: Params = {}) {
 		return Object.fromEntries(entries);
 	};
 
-	const initialize = () => {
-		const env = process.env as Record<string, string>;
+	const initialize = (overrideEnv?: Record<string, string>) => {
+		const env = overrideEnv ?? (process.env as Record<string, string>);
 
 		Object.entries(getBrowserContext(env)).forEach(([key, value]) => {
 			browserContext.set(key, value);

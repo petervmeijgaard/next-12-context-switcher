@@ -11,9 +11,11 @@
 	"dependencies": {
 		"@acme/my-component": "workspace:*",
 		"@acme/contextify": "workspace:*",
+		"cookies-next": "^4.2.1",
 		"next": "^12.3.4",
 		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
+		"react-dom": "^17.0.2",
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@types/node": "^20.14.9",
