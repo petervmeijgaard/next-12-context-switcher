@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const EnvironmentSchema = z.enum(["dev", "test", "acc"]);
+export const EnvironmentSchema = z.enum(["ontw", "test", "acc"]);
 
 export const ChangeEnvironmentFormSchema = z.object({
 	environment: EnvironmentSchema,

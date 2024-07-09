@@ -5,7 +5,7 @@ import { ChangeEnvironmentFormSchema } from "../schemas";
 import { useRouter } from "next/router";
 
 const ENVIRONMENT_MAP = {
-	dev: "Development",
+	ontw: "Ontwikkel",
 	test: "Test",
 	acc: "Acceptance",
 };
