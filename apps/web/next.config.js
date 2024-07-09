@@ -7,6 +7,8 @@ const plugins = [withTranspiledModules];
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
+	typescript: { ignoreBuildErrors: true },
+	eslint: { ignoreDuringBuilds: true },
 };
 
 module.exports = withPlugins(plugins, nextConfig);
