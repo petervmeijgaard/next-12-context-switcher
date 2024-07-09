@@ -3,6 +3,7 @@ import { MyComponent } from "@acme/my-component";
 import { GetServerSidePropsContext } from "next";
 import { getContextFromNextContext } from "../helpers/get-context-from-next-context";
 import { contextify } from "../server/contextify";
+import { ChangeEnvironment } from "../components/change-environment";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 	const env = await getContextFromNextContext(ctx);
@@ -23,7 +24,11 @@ function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div>
-				<MyComponent />
+				<div className="container mx-auto py-4 space-y-4">
+					<h1 className="text-2xl font-bold">Next 12 runtime environment</h1>
+					<MyComponent />
+					<ChangeEnvironment />
+				</div>
 			</div>
 		</div>
 	);
