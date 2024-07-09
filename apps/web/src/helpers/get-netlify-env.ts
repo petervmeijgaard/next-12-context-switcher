@@ -36,7 +36,7 @@ export const getNetlifyEnv = async (ctx: GetServerSidePropsContext) => {
 
 	return netlify
 		.getSiteEnvVars({
-			siteId: process.env.NETLIFY_SITE_ID ?? process.env.SITE_ID ?? "",
+			siteId: process.env.SITE_ID ?? "",
 		})
 		.then((response) => response.reduce(reduceToEnv, {}));
 };
