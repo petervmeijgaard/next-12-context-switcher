@@ -1,3 +1,5 @@
+import { Environment } from "../schemas";
+
 type Context = {
 	NEXT_PUBLIC_FOO_BAR: string;
 	API_KEY: string;
@@ -20,15 +22,13 @@ const accContext: Context = {
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const contextMap: Record<ContextType, Context> = {
+const contextMap: Record<Environment, Context> = {
 	dev: devContext,
 	test: testContext,
 	acc: accContext,
 };
 
-type ContextType = "dev" | "test" | "acc";
-
-export async function switchContext(context: ContextType) {
+export async function switchContext(context: Environment) {
 	await wait(1000);
 
 	return contextMap[context];
