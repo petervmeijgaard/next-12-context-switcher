@@ -20,8 +20,6 @@ const accContext: Context = {
 	API_KEY: "private-acc",
 };
 
-const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 const contextMap: Record<Environment, Context> = {
 	dev: devContext,
 	test: testContext,
@@ -29,7 +27,5 @@ const contextMap: Record<Environment, Context> = {
 };
 
 export async function switchContext(context: Environment) {
-	await wait(1000);
-
 	return contextMap[context];
 }
