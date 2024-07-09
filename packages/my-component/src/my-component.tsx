@@ -18,12 +18,12 @@ export function EnvironmentTableBody({ entries }: { entries: Entries }) {
 			{entries.map(([key, value]) => (
 				<tr key={key} className="border-b">
 					<td className="p-4">
-						<pre className="p-2 bg-gray-200 inline rounded font-mono">
+						<pre className="inline rounded bg-gray-200 p-2 font-mono">
 							{key}
 						</pre>
 					</td>
 					<td className="p-4">
-						<pre className="p-2 bg-gray-200 inline rounded font-mono">
+						<pre className="inline rounded bg-gray-200 p-2 font-mono">
 							{value}
 						</pre>
 					</td>
@@ -35,11 +35,11 @@ export function EnvironmentTableBody({ entries }: { entries: Entries }) {
 
 function EnvironmentTable({ entries }: { entries: Entries }) {
 	return (
-		<table className="border table-fixed w-full">
+		<table className="w-full table-fixed border">
 			<thead>
 				<tr>
-					<th className="border-b font-medium p-4 text-left">Key</th>
-					<th className="border-b font-medium p-4 text-left">Value</th>
+					<th className="border-b p-4 text-left font-medium">Key</th>
+					<th className="border-b p-4 text-left font-medium">Value</th>
 				</tr>
 			</thead>
 			<tbody className="">

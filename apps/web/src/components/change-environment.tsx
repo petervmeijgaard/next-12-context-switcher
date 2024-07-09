@@ -37,13 +37,13 @@ export function ChangeEnvironment() {
 			<div className="border-b p-4">
 				<h2 className="font-bold">Change environment</h2>
 			</div>
-			<form className="flex flex-col p-4 gap-4" onSubmit={onSubmit}>
+			<form className="flex flex-col gap-4 p-4" onSubmit={onSubmit}>
 				<div className="flex flex-col gap-2">
 					<label htmlFor="select-environment">Environment</label>
 					<select
 						name="environment"
 						id="select-environment"
-						className="p-2 border rounded"
+						className="rounded border p-2"
 					>
 						{options.map(([key, value]) => (
 							<option key={key} value={key}>
@@ -55,7 +55,7 @@ export function ChangeEnvironment() {
 				<div className="flex flex-col gap-2">
 					<button
 						type="submit"
-						className="rounded border bg-gray-900 text-gray-50 p-2"
+						className="rounded border bg-gray-900 p-2 text-gray-50"
 					>
 						Submit
 					</button>

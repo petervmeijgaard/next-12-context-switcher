@@ -24,7 +24,7 @@ function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div>
-				<div className="container mx-auto py-4 space-y-4">
+				<div className="container mx-auto space-y-4 py-4">
 					<h1 className="text-2xl font-bold">Next 12 runtime environment</h1>
 					<MyComponent />
 					<ChangeEnvironment />
