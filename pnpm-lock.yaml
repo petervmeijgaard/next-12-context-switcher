@@ -20,6 +20,9 @@ importers:
       '@acme/my-component':
         specifier: workspace:*
         version: link:../../packages/my-component
+      '@acme/netlify-api':
+        specifier: workspace:*
+        version: link:../../packages/netlify-api
       '@tanstack/react-query':
         specifier: '4'
         version: 4.36.1(react-dom@17.0.2)(react@17.0.2)
@@ -109,6 +112,12 @@ importers:
       react-dom:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
+
+  packages/netlify-api:
+    dependencies:
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
 
 packages:
 

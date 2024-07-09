@@ -1,17 +1,14 @@
 import Head from "next/head";
 import { MyComponent } from "@acme/my-component";
 import { GetServerSidePropsContext } from "next";
-import { getContextFromNextContext } from "../helpers/get-context-from-next-context";
 import { contextify } from "../server/contextify";
 import { ChangeEnvironment } from "../components/change-environment";
-import { getServerContext } from "@acme/contextify";
+import { getNetlifyEnv } from "../helpers/get-netlify-env";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-	const env = await getContextFromNextContext(ctx);
+	const env = await getNetlifyEnv(ctx);
 
 	contextify.initialize(env);
-
-	console.log(getServerContext());
 
 	return {
 		props: {},

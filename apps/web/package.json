@@ -11,6 +11,7 @@
 	"dependencies": {
 		"@acme/contextify": "workspace:*",
 		"@acme/my-component": "workspace:*",
+		"@acme/netlify-api": "workspace:*",
 		"@tanstack/react-query": "4",
 		"cookies-next": "^4.2.1",
 		"next": "^12.3.4",

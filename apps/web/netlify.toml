@@ -1,0 +1,13 @@
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[dev]
+port = 8888
+targetPort = 3000
+autoLaunch = false
+
+# Cache "/_next/*" assets for 1 year
+[[headers]]
+for = "/_next/*"
+[headers.values]
+"Cache-Control" = "max-age=31560000, immutable"
