@@ -4,11 +4,14 @@ import { GetServerSidePropsContext } from "next";
 import { getContextFromNextContext } from "../helpers/get-context-from-next-context";
 import { contextify } from "../server/contextify";
 import { ChangeEnvironment } from "../components/change-environment";
+import { getServerContext } from "@acme/contextify";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 	const env = await getContextFromNextContext(ctx);
 
 	contextify.initialize(env);
+
+	console.log(getServerContext());
 
 	return {
 		props: {},
