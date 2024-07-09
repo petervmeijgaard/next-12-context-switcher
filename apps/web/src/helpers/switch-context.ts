@@ -4,18 +4,18 @@ type Context = {
 };
 
 const devContext: Context = {
-	NEXT_PUBLIC_FOO_BAR: "dev-foo-bar",
-	API_KEY: "dev-api-key",
+	NEXT_PUBLIC_FOO_BAR: "public-dev",
+	API_KEY: "private-dev",
 };
 
 const testContext: Context = {
-	NEXT_PUBLIC_FOO_BAR: "test-foo-bar",
-	API_KEY: "test-api-key",
+	NEXT_PUBLIC_FOO_BAR: "public-test",
+	API_KEY: "private-test",
 };
 
 const accContext: Context = {
-	NEXT_PUBLIC_FOO_BAR: "acc-foo-bar",
-	API_KEY: "acc-api-key",
+	NEXT_PUBLIC_FOO_BAR: "public-acc",
+	API_KEY: "private-acc",
 };
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
