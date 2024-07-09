@@ -2,10 +2,11 @@ import { browserContext, serverContext } from "./state";
 
 type Params = {
 	browserPrefix?: string;
+	defaultEnv?: Record<string, string>;
 };
 
 export function defineContext(params: Params = {}) {
-	const { browserPrefix } = params;
+	const { browserPrefix, defaultEnv } = params;
 
 	const getBrowserContext = (env: Record<string, string>) => {
 		if (!browserPrefix) return env;
@@ -18,7 +19,7 @@ export function defineContext(params: Params = {}) {
 	};
 
 	const initialize = (overrideEnv?: Record<string, string>) => {
-		const env = overrideEnv ?? (process.env as Record<string, string>);
+		const env = overrideEnv ?? defaultEnv ?? {};
 
 		Object.entries(getBrowserContext(env)).forEach(([key, value]) => {
 			browserContext.set(key, value);

@@ -1,17 +1,13 @@
 import Head from "next/head";
-import { defineContext } from "@acme/contextify";
 import { MyComponent } from "@acme/my-component";
 import { GetServerSidePropsContext } from "next";
 import { getContextFromNextContext } from "../helpers/get-context-from-next-context";
-
-const context = defineContext({
-	browserPrefix: "NEXT_PUBLIC",
-});
+import { contextify } from "../server/contextify";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 	const env = await getContextFromNextContext(ctx);
 
-	context.initialize(env);
+	contextify.initialize(env);
 
 	return {
 		props: {},
