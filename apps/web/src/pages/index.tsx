@@ -5,6 +5,7 @@ import { contextify } from "../server/contextify";
 import { ChangeEnvironment } from "../components/change-environment";
 import { getNetlifyEnv } from "../helpers/get-netlify-env";
 import { isNetlifyDeployPreview } from "../helpers/is-netlify-deploy-preview";
+import { NotAllowed } from "../components/not-allowed";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 	const env = await getNetlifyEnv(ctx);
@@ -28,7 +29,7 @@ function Home() {
 				<div className="container mx-auto space-y-4 py-4">
 					<h1 className="text-2xl font-bold">Next 12 runtime environment</h1>
 					<MyComponent />
-					{isNetlifyDeployPreview() && <ChangeEnvironment />}
+					{isNetlifyDeployPreview() ? <ChangeEnvironment /> : <NotAllowed />}
 				</div>
 			</div>
 		</div>
