@@ -17,6 +17,7 @@ const createContext = <T extends string>(context: T) =>
 const EnvVarValueSchema = z.discriminatedUnion("context", [
 	createContext("all"),
 	createContext("dev"),
+	createContext("dev-server"),
 	createContext("branch-deploy"),
 	createContext("deploy-preview"),
 	createContext("production"),
