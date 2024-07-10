@@ -7,9 +7,6 @@ const plugins = [withTranspiledModules];
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
-	env: {
-		NETLIFY_SITE_ID: process.env.SITE_ID ?? process.env.NETLIFY_SITE_ID,
-	},
 	typescript: { ignoreBuildErrors: true },
 	eslint: { ignoreDuringBuilds: true },
 };

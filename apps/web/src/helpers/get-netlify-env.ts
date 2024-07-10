@@ -34,16 +34,15 @@ export const getNetlifyEnv = async (ctx: GetServerSidePropsContext) => {
 
 	// If the value of the cookie is not a valid environment, remove the cookie
 	if (!result.success) {
-		deleteCookie(COOKIE_NAME, ctx)
+		deleteCookie(COOKIE_NAME, ctx);
 
 		return;
 	}
 
 	const reduceToEnv = reduceToEnvWithContext(result.data);
+	const siteId = process.env.SITE_ID ?? process.env.NETLIFY_SITE_ID ?? '';
 
 	return netlify
-		.getSiteEnvVars({
-			siteId: process.env.NETLIFY_SITE_ID ?? "",
-		})
+		.getSiteEnvVars({ siteId })
 		.then((response) => response.reduce(reduceToEnv, {}));
 };
