@@ -40,7 +40,10 @@ export const getNetlifyEnv = async (ctx: GetServerSidePropsContext) => {
 	}
 
 	const reduceToEnv = reduceToEnvWithContext(result.data);
-	const siteId = process.env.SITE_ID ?? process.env.NETLIFY_SITE_ID ?? '';
+	const siteId = process.env.SITE_ID ?? process.env.NETLIFY_SITE_ID;
+
+	// If the siteId is not defined, it's not possible to fetch the environment variables
+	if (!siteId) return;
 
 	return netlify
 		.getSiteEnvVars({ siteId })
