@@ -2,7 +2,7 @@ const transpileModules = require("next-transpile-modules");
 
 const includes = [
 	"@acme/contextify",
-	"@acme/my-component",
+	"@acme/shared",
 	"@acme/netlify-api",
 	"@acme/ui",
 ];

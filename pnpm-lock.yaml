@@ -23,12 +23,12 @@ importers:
       '@acme/contextify':
         specifier: workspace:*
         version: link:../../packages/contextify
-      '@acme/my-component':
-        specifier: workspace:*
-        version: link:../../packages/my-component
       '@acme/netlify-api':
         specifier: workspace:*
         version: link:../../packages/netlify-api
+      '@acme/shared':
+        specifier: workspace:*
+        version: link:../../packages/my-component
       '@acme/ui':
         specifier: workspace:*
         version: link:../../packages/ui

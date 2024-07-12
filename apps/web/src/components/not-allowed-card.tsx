@@ -1,8 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@acme/ui/card";
+import { ComponentProps } from "react";
 
-export function NotAllowedCard() {
+export function NotAllowedCard(props: ComponentProps<typeof Card>) {
 	return (
-		<Card>
+		<Card {...props}>
 			<CardHeader>
 				<CardTitle>Not allowed to change the context</CardTitle>
 			</CardHeader>

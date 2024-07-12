@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@acme/contextify": "workspace:*",
-		"@acme/my-component": "workspace:*",
+		"@acme/shared": "workspace:*",
 		"@acme/netlify-api": "workspace:*",
 		"@acme/ui": "workspace:*",
 		"@hookform/resolvers": "^3.9.0",

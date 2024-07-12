@@ -19,6 +19,7 @@ import {
 	FormLabel,
 } from "@acme/ui/form";
 import { useZodForm } from "../hooks/use-zod-form";
+import { ComponentProps } from "react";
 
 const ENVIRONMENT_MAP = Object.entries({
 	ontw: "Ontwikkel",
@@ -26,7 +27,7 @@ const ENVIRONMENT_MAP = Object.entries({
 	acc: "Acceptance",
 });
 
-export function ChangeEnvironmentCard() {
+export function ChangeEnvironmentCard(props: ComponentProps<typeof Card>) {
 	const router = useRouter();
 
 	const form = useZodForm({
@@ -45,7 +46,7 @@ export function ChangeEnvironmentCard() {
 	});
 
 	return (
-		<Card>
+		<Card {...props}>
 			<CardHeader>
 				<CardTitle>Change environment</CardTitle>
 			</CardHeader>

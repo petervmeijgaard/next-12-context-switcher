@@ -1,6 +1,6 @@
 {
-	"name": "@acme/my-component",
-	"description": "An example component that uses contextify",
+	"name": "@acme/shared",
+	"description": "An shared package that holds various components and helpers",
 	"version": "0.0.1",
 	"main": "src/index.ts",
 	"module": "src/index.ts",

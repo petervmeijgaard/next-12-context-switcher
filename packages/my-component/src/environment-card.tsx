@@ -8,6 +8,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@acme/ui/table";
+import { Card, CardContent, CardHeader, CardTitle } from "@acme/ui/card";
 
 type Entries = [string, unknown][];
 
@@ -56,10 +57,19 @@ function EnvironmentTable({ entries }: { entries: Entries }) {
 	);
 }
 
-export function MyComponent() {
+export function EnvironmentCard() {
 	const context = getBrowserContext();
 
 	const entries = Object.entries(context);
 
-	return <EnvironmentTable entries={entries} />;
+	return (
+		<Card>
+			<CardHeader>
+				<CardTitle>Environment variables</CardTitle>
+			</CardHeader>
+			<CardContent>
+				<EnvironmentTable entries={entries} />
+			</CardContent>
+		</Card>
+	);
 }

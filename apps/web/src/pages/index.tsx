@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { MyComponent } from "@acme/my-component";
+import { EnvironmentCard, Show } from "@acme/shared";
 import { GetServerSidePropsContext } from "next";
 import { contextify } from "../server/contextify";
 import { ChangeEnvironmentCard } from "../components/change-environment-card";
@@ -28,12 +28,12 @@ function Home() {
 			<div>
 				<div className="container mx-auto space-y-4 py-4">
 					<h1 className="text-2xl font-bold">Next 12 runtime environment</h1>
-					<MyComponent />
-					{isNetlifyDeployPreview() ? (
-						<ChangeEnvironmentCard />
-					) : (
-						<NotAllowedCard />
-					)}
+					<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+						<EnvironmentCard />
+						<Show when={isNetlifyDeployPreview()} fallback={<NotAllowedCard />}>
+							<ChangeEnvironmentCard />
+						</Show>
+					</div>
 				</div>
 			</div>
 		</div>
