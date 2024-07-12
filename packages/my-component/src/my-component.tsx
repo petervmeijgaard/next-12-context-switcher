@@ -1,33 +1,40 @@
 import { getBrowserContext } from "@acme/contextify";
 
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@acme/ui/table";
+
 type Entries = [string, unknown][];
 
 export function EnvironmentTableBody({ entries }: { entries: Entries }) {
 	if (!entries.length) {
 		return (
-			<tr className="border-b">
-				<td colSpan={2} className="p-4">
-					No content available
-				</td>
-			</tr>
+			<TableRow>
+				<TableCell colSpan={2}>No content available</TableCell>
+			</TableRow>
 		);
 	}
 
 	return (
 		<>
 			{entries.map(([key, value]) => (
-				<tr key={key} className="border-b">
-					<td className="p-4">
+				<TableRow key={key}>
+					<TableCell>
 						<pre className="inline rounded bg-gray-200 p-2 font-mono">
 							{key}
 						</pre>
-					</td>
-					<td className="p-4">
+					</TableCell>
+					<TableCell>
 						<pre className="inline rounded bg-gray-200 p-2 font-mono">
 							{value}
 						</pre>
-					</td>
-				</tr>
+					</TableCell>
+				</TableRow>
 			))}
 		</>
 	);
@@ -35,17 +42,17 @@ export function EnvironmentTableBody({ entries }: { entries: Entries }) {
 
 function EnvironmentTable({ entries }: { entries: Entries }) {
 	return (
-		<table className="w-full table-fixed border">
-			<thead>
-				<tr>
-					<th className="border-b p-4 text-left font-medium">Key</th>
-					<th className="border-b p-4 text-left font-medium">Value</th>
-				</tr>
-			</thead>
-			<tbody className="">
+		<Table>
+			<TableHeader>
+				<TableRow>
+					<TableHead>Key</TableHead>
+					<TableHead>Value</TableHead>
+				</TableRow>
+			</TableHeader>
+			<TableBody className="">
 				<EnvironmentTableBody entries={entries} />
-			</tbody>
-		</table>
+			</TableBody>
+		</Table>
 	);
 }
 

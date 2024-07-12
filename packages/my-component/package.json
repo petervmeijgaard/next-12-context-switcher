@@ -5,7 +5,8 @@
 	"main": "src/index.ts",
 	"module": "src/index.ts",
 	"dependencies": {
-		"@acme/contextify": "workspace:*"
+		"@acme/contextify": "workspace:*",
+		"@acme/ui": "workspace:*"
 	},
 	"peerDependencies": {
 		"react": "^17.0.0 || ^18.0.0",

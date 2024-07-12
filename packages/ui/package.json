@@ -1,0 +1,37 @@
+{
+	"name": "@acme/ui",
+	"description": "The ACME UI package",
+	"version": "0.0.1",
+	"exports": {
+		"./button": "./src/components/button.tsx",
+		"./card": "./src/components/card.tsx",
+		"./form": "./src/components/form.tsx",
+		"./label": "./src/components/label.tsx",
+		"./select": "./src/components/select.tsx",
+		"./table": "./src/components/table.tsx"
+	},
+	"dependencies": {
+		"@radix-ui/react-label": "^2.1.0",
+		"@radix-ui/react-select": "^2.1.1",
+		"@radix-ui/react-slot": "^1.1.0",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.407.0",
+		"tailwind-merge": "^2.4.0",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"peerDependencies": {
+		"react": "^17.0.0 || ^18.0.0",
+		"react-dom": "^17.0.0 || ^18.0.0",
+		"react-hook-form": "^7.0.0",
+		"react-use-id-hook": "^1.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^17.0.39",
+		"@types/react-dom": "^17.0.25",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-hook-form": "^7.52.1",
+		"react-use-id-hook": "^1.0.1"
+	}
+}

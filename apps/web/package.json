@@ -12,11 +12,15 @@
 		"@acme/contextify": "workspace:*",
 		"@acme/my-component": "workspace:*",
 		"@acme/netlify-api": "workspace:*",
-		"@tanstack/react-query": "4",
+		"@acme/ui": "workspace:*",
+		"@hookform/resolvers": "^3.9.0",
+		"@tanstack/react-query": "^4.36.1",
 		"cookies-next": "^4.2.1",
 		"next": "^12.3.4",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
+		"react-hook-form": "^7.52.1",
+		"react-use-id-hook": "^1.0.1",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {

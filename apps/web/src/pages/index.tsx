@@ -2,10 +2,10 @@ import Head from "next/head";
 import { MyComponent } from "@acme/my-component";
 import { GetServerSidePropsContext } from "next";
 import { contextify } from "../server/contextify";
-import { ChangeEnvironment } from "../components/change-environment";
+import { ChangeEnvironmentCard } from "../components/change-environment-card";
 import { getNetlifyEnv } from "../helpers/get-netlify-env";
 import { isNetlifyDeployPreview } from "../helpers/is-netlify-deploy-preview";
-import { NotAllowed } from "../components/not-allowed";
+import { NotAllowedCard } from "../components/not-allowed-card";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 	const env = await getNetlifyEnv(ctx);
@@ -29,7 +29,11 @@ function Home() {
 				<div className="container mx-auto space-y-4 py-4">
 					<h1 className="text-2xl font-bold">Next 12 runtime environment</h1>
 					<MyComponent />
-					{isNetlifyDeployPreview() ? <ChangeEnvironment /> : <NotAllowed />}
+					{isNetlifyDeployPreview() ? (
+						<ChangeEnvironmentCard />
+					) : (
+						<NotAllowedCard />
+					)}
 				</div>
 			</div>
 		</div>
