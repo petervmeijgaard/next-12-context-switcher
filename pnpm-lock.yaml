@@ -28,7 +28,7 @@ importers:
         version: link:../../packages/netlify-api
       '@acme/shared':
         specifier: workspace:*
-        version: link:../../packages/my-component
+        version: link:../../packages/shared
       '@acme/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -112,7 +112,13 @@ importers:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
 
-  packages/my-component:
+  packages/netlify-api:
+    dependencies:
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+
+  packages/shared:
     dependencies:
       '@acme/contextify':
         specifier: workspace:*
@@ -133,12 +139,6 @@ importers:
       react-dom:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
-
-  packages/netlify-api:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
 
   packages/ui:
     dependencies:
