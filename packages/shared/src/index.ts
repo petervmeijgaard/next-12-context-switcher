@@ -1,2 +1,2 @@
-export { EnvironmentCard } from "./environment-card";
-export { Show } from "./show";
+export { EnvironmentCard } from "./environment-card.js";
+export { Show } from "./show.js";

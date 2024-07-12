@@ -1,5 +1,5 @@
-import { BROWSER_CONTEXT_KEY } from "../constants";
-import { browserContext } from "../state";
+import { BROWSER_CONTEXT_KEY } from "../constants.js";
+import { browserContext } from "../state.js";
 
 export function ContextifyScript() {
 	const context = Object.fromEntries(browserContext.entries());

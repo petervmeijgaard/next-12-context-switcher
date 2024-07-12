@@ -2,13 +2,37 @@
 	"name": "@acme/ui",
 	"description": "The ACME UI package",
 	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "tsc --watch",
+		"build": "tsc",
+		"typecheck": "tsc --noEmit"
+	},
 	"exports": {
-		"./button": "./src/components/button.tsx",
-		"./card": "./src/components/card.tsx",
-		"./form": "./src/components/form.tsx",
-		"./label": "./src/components/label.tsx",
-		"./select": "./src/components/select.tsx",
-		"./table": "./src/components/table.tsx"
+		"./button": {
+			"types": "./dist/components/button.d.ts",
+			"default": "./dist/components/button.js"
+		},
+		"./card": {
+			"types": "./dist/components/card.d.ts",
+			"default": "./dist/components/card.js"
+		},
+		"./form": {
+			"types": "./dist/components/form.d.ts",
+			"default": "./dist/components/form.js"
+		},
+		"./label": {
+			"types": "./dist/components/label.d.ts",
+			"default": "./dist/components/label.js"
+		},
+		"./select": {
+			"types": "./dist/components/select.d.ts",
+			"default": "./dist/components/select.js"
+		},
+		"./table": {
+			"types": "./dist/components/table.d.ts",
+			"default": "./dist/components/table.js"
+		}
 	},
 	"dependencies": {
 		"@radix-ui/react-label": "^2.1.0",
@@ -17,6 +41,7 @@
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
 		"lucide-react": "^0.407.0",
+		"tailwindcss": "^3.4.4",
 		"tailwind-merge": "^2.4.0",
 		"tailwindcss-animate": "^1.0.7"
 	},
@@ -27,11 +52,13 @@
 		"react-use-id-hook": "^1.0.0"
 	},
 	"devDependencies": {
+		"@acme/tsconfig": "workspace:*",
 		"@types/react": "^17.0.39",
 		"@types/react-dom": "^17.0.25",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-hook-form": "^7.52.1",
-		"react-use-id-hook": "^1.0.1"
+		"react-use-id-hook": "^1.0.1",
+		"typescript": "^5.5.3"
 	}
 }

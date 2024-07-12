@@ -1,5 +1,5 @@
-import { NetlifyError } from "./NetlifyError";
-import { EnvVarSchema } from "./schemas";
+import { NetlifyError } from "./NetlifyError.js";
+import { EnvVarSchema } from "./schemas.js";
 import { z } from "zod";
 
 export class NetlifyAPI {

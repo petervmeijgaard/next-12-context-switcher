@@ -1,5 +1,5 @@
-export { ContextifyScript } from "./components/ContextifyScript";
+export { ContextifyScript } from "./components/ContextifyScript.js";
 
-export { defineContext } from "./define-context";
-export { getBrowserContext } from "./get-browser-context";
-export { getServerContext } from "./get-server-context";
+export { defineContext } from "./define-context.js";
+export { getBrowserContext } from "./get-browser-context.js";
+export { getServerContext } from "./get-server-context.js";

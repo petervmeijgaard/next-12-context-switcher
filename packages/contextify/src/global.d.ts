@@ -1,5 +1,5 @@
 // @ts-ignore
-import { BROWSER_CONTEXT_KEY } from "./constants";
+import { BROWSER_CONTEXT_KEY } from "./constants.js";
 
 declare global {
 	interface Window {

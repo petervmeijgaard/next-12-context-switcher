@@ -1,3 +1,3 @@
-export { NetlifyAPI } from "./NetlifyAPI";
+export { NetlifyAPI } from "./NetlifyAPI.js";
 
-export type { EnvVar, EnvVarValue } from "./schemas";
+export type { EnvVar, EnvVarValue } from "./schemas.js";

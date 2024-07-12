@@ -1,6 +1,6 @@
-import { isBrowser } from "./helpers/is-browser";
-import { ContextifyError } from "./contextify-error";
-import { serverContext } from "./state";
+import { isBrowser } from "./helpers/is-browser.js";
+import { ContextifyError } from "./contextify-error.js";
+import { serverContext } from "./state.js";
 
 export function getServerContext() {
 	if (isBrowser()) {

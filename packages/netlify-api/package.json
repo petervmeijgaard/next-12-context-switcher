@@ -2,9 +2,23 @@
 	"name": "@acme/netlify-api",
 	"description": "The Netlify API helper package",
 	"version": "0.0.1",
-	"main": "src/index.ts",
-	"module": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"dev": "tsc --watch",
+		"build": "tsc",
+		"typecheck": "tsc --noEmit"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
 	"dependencies": {
 		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@acme/tsconfig": "workspace:*",
+		"typescript": "^5.5.3"
 	}
 }
