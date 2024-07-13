@@ -1,4 +1,4 @@
-import { ChangeEnvironmentFormSchema } from "../schemas";
+import { ChangeEnvironmentFormSchema, EnvironmentSchema } from "../schemas";
 import { useRouter } from "next/router";
 import { Card, CardContent, CardHeader, CardTitle } from "@acme/ui/card";
 import { Button } from "@acme/ui/button";
@@ -19,7 +19,7 @@ import {
 import { useZodForm } from "../hooks/use-zod-form";
 import { ComponentProps } from "react";
 import { COOKIE_NAME } from "../constants";
-import { useCookie } from "../hooks/use-cookie";
+import { useZodCookie } from "../hooks/use-zod-cookie";
 
 const ENVIRONMENT_MAP = Object.entries({
 	ontw: "Ontwikkel",
@@ -28,8 +28,11 @@ const ENVIRONMENT_MAP = Object.entries({
 });
 
 export function ChangeEnvironmentCard(props: ComponentProps<typeof Card>) {
-	const [environment, setEnvironment, resetEnvironment] =
-		useCookie(COOKIE_NAME);
+	const [environment, setEnvironment, removeEnvironment] = useZodCookie(
+		COOKIE_NAME,
+		EnvironmentSchema,
+	);
+
 	const router = useRouter();
 
 	const form = useZodForm({
@@ -44,7 +47,7 @@ export function ChangeEnvironmentCard(props: ComponentProps<typeof Card>) {
 	});
 
 	const onReset = () => {
-		resetEnvironment();
+		removeEnvironment();
 
 		router.reload();
 	};
