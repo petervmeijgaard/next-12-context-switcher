@@ -1,0 +1,15 @@
+{
+	"name": "@acme/tailwind-config",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		".": "./base.js"
+	},
+	"peerDependencies": {
+		"tailwindcss": "^3.0.0"
+	},
+	"devDependencies": {
+		"tailwindcss": "^3.4.4"
+	}
+}
