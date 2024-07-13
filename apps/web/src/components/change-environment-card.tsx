@@ -1,5 +1,3 @@
-import { useMutation } from "@tanstack/react-query";
-import { changeEnvironment } from "../helpers/change-environment";
 import { ChangeEnvironmentFormSchema } from "../schemas";
 import { useRouter } from "next/router";
 import { Card, CardContent, CardHeader, CardTitle } from "@acme/ui/card";
@@ -20,6 +18,8 @@ import {
 } from "@acme/ui/form";
 import { useZodForm } from "../hooks/use-zod-form";
 import { ComponentProps } from "react";
+import { COOKIE_NAME } from "../constants";
+import { useCookie } from "../hooks/use-cookie";
 
 const ENVIRONMENT_MAP = Object.entries({
 	ontw: "Ontwikkel",
@@ -28,21 +28,18 @@ const ENVIRONMENT_MAP = Object.entries({
 });
 
 export function ChangeEnvironmentCard(props: ComponentProps<typeof Card>) {
+	const [environment, setEnvironment] = useCookie(COOKIE_NAME);
 	const router = useRouter();
 
 	const form = useZodForm({
 		schema: ChangeEnvironmentFormSchema,
-	});
-
-	const mutation = useMutation({
-		mutationFn: changeEnvironment,
-		onSuccess: () => {
-			router.reload();
-		},
+		defaultValues: { environment },
 	});
 
 	const onSubmit = form.handleSubmit((data) => {
-		mutation.mutate(data);
+		setEnvironment(data.environment);
+
+		router.reload();
 	});
 
 	return (

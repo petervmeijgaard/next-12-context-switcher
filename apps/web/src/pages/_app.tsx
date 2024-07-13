@@ -1,17 +1,15 @@
 import type { AppProps } from "next/app";
 import "../styles/globals.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { IdProvider } from "react-use-id-hook";
-
-const queryClient = new QueryClient();
+import { CookiesProvider } from "react-cookie";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<QueryClientProvider client={queryClient}>
-			<IdProvider>
+		<IdProvider>
+			<CookiesProvider>
 				<Component {...pageProps} />
-			</IdProvider>
-		</QueryClientProvider>
+			</CookiesProvider>
+		</IdProvider>
 	);
 }
 
