@@ -28,7 +28,8 @@ const ENVIRONMENT_MAP = Object.entries({
 });
 
 export function ChangeEnvironmentCard(props: ComponentProps<typeof Card>) {
-	const [environment, setEnvironment] = useCookie(COOKIE_NAME);
+	const [environment, setEnvironment, resetEnvironment] =
+		useCookie(COOKIE_NAME);
 	const router = useRouter();
 
 	const form = useZodForm({
@@ -41,6 +42,12 @@ export function ChangeEnvironmentCard(props: ComponentProps<typeof Card>) {
 
 		router.reload();
 	});
+
+	const onReset = () => {
+		resetEnvironment();
+
+		router.reload();
+	};
 
 	return (
 		<Card {...props}>
@@ -76,7 +83,12 @@ export function ChangeEnvironmentCard(props: ComponentProps<typeof Card>) {
 								</FormItem>
 							)}
 						/>
-						<Button type="submit">Submit</Button>
+						<div className="space-x-2">
+							<Button type="submit">Submit</Button>
+							<Button type="button" onClick={onReset}>
+								Reset
+							</Button>
+						</div>
 					</form>
 				</Form>
 			</CardContent>
