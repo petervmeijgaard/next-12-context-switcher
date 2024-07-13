@@ -1,16 +1,12 @@
 {
-  "extends": "@acme/tsconfig/base.json",
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
-  "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "preserve"
-  }
+	"extends": "@acme/tsconfig/base.json",
+	"include": ["src"],
+	"exclude": ["node_modules"],
+	"compilerOptions": {
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"module": "esnext",
+		"moduleResolution": "node16",
+		"jsx": "preserve"
+	}
 }
