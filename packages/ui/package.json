@@ -4,35 +4,15 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "tsc --watch",
-		"build": "tsc",
 		"typecheck": "tsc --noEmit"
 	},
 	"exports": {
-		"./button": {
-			"types": "./dist/components/button.d.ts",
-			"default": "./dist/components/button.js"
-		},
-		"./card": {
-			"types": "./dist/components/card.d.ts",
-			"default": "./dist/components/card.js"
-		},
-		"./form": {
-			"types": "./dist/components/form.d.ts",
-			"default": "./dist/components/form.js"
-		},
-		"./label": {
-			"types": "./dist/components/label.d.ts",
-			"default": "./dist/components/label.js"
-		},
-		"./select": {
-			"types": "./dist/components/select.d.ts",
-			"default": "./dist/components/select.js"
-		},
-		"./table": {
-			"types": "./dist/components/table.d.ts",
-			"default": "./dist/components/table.js"
-		}
+		"./button": "./src/components/button.tsx",
+		"./card": "./src/components/card.tsx",
+		"./form": "./src/components/form.tsx",
+		"./label": "./src/components/label.tsx",
+		"./select": "./src/components/select.tsx",
+		"./table": "./src/components/table.tsx"
 	},
 	"dependencies": {
 		"@radix-ui/react-label": "^2.1.0",

@@ -4,15 +4,15 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "tsc --watch",
-		"build": "tsc",
 		"typecheck": "tsc --noEmit"
 	},
 	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
-		}
+		".": "./src/index.ts",
+		"./server": "./src/server/index.ts",
+		"./browser": "./src/browser/index.ts"
+	},
+	"dependencies": {
+		"zod": "^3.23.8"
 	},
 	"peerDependencies": {
 		"react": "^17.0.0 || ^18.0.0",

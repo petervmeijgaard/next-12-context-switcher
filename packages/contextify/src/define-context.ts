@@ -1,14 +1,22 @@
-import { browserContext, serverContext } from "./state.js";
+import { env as serverEnv } from "./server/env.js";
+import { env as browserEnv } from "./browser/env.js";
 
-type Params = {
-	browserPrefix?: string;
-	defaultEnv?: Record<string, string>;
+import { ContextifyError } from "./contextify-error.js";
+import { z } from "zod";
+import { isServer } from "./helpers/is-server.js";
+
+type Params<TSchema extends z.ZodType> = {
+	browserPrefix: string;
+	runtimeEnv: Record<string, unknown>;
+	schema: TSchema;
 };
 
-export function defineContext(params: Params = {}) {
-	const { browserPrefix, defaultEnv } = params;
-
-	const getBrowserContext = (env: Record<string, string>) => {
+export function defineContext<TSchema extends z.ZodType>({
+	browserPrefix,
+	runtimeEnv,
+	schema,
+}: Params<TSchema>) {
+	const getBrowserContext = (env: TSchema["_input"]) => {
 		if (!browserPrefix) return env;
 
 		const entries = Object.entries(env).filter(([key]) => {
@@ -18,19 +26,37 @@ export function defineContext(params: Params = {}) {
 		return Object.fromEntries(entries);
 	};
 
-	const initialize = (overrideEnv?: Record<string, string>) => {
-		const env = overrideEnv ?? defaultEnv ?? {};
+	const setEnvironment = (newEnv: Record<string, unknown>) => {
+		if (!isServer()) {
+			throw new ContextifyError("Cannot switch context in the browser");
+		}
 
-		Object.entries(getBrowserContext(env)).forEach(([key, value]) => {
-			browserContext.set(key, value);
+		const parsed = schema.safeParse(newEnv);
+
+		if (!parsed.success) {
+			throw new ContextifyError("Invalid environment variables");
+		}
+
+		Object.entries(getBrowserContext(parsed.data)).forEach(([key, value]) => {
+			browserEnv.set(key, value);
 		});
 
-		Object.entries(env).forEach(([key, value]) => {
-			serverContext.set(key, value);
+		Object.entries(parsed.data).forEach(([key, value]) => {
+			serverEnv.set(key, value);
 		});
 	};
 
-	return {
-		initialize,
+	const initialize = () => {
+		setEnvironment(runtimeEnv);
 	};
+
+	const switchContext = (newEnv: Record<string, unknown> | undefined) => {
+		const env = newEnv ?? runtimeEnv;
+
+		setEnvironment(env);
+	};
+
+	initialize();
+
+	return { switchContext, reset: initialize };
 }

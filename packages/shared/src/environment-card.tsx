@@ -1,4 +1,4 @@
-import { getBrowserContext } from "@acme/contextify";
+import { env } from "@acme/contextify/browser";
 
 import {
 	Table,
@@ -58,7 +58,7 @@ function EnvironmentTable({ entries }: { entries: Entries }) {
 }
 
 export function EnvironmentCard() {
-	const context = getBrowserContext();
+	const context = env;
 
 	const entries = Object.entries(context);
 

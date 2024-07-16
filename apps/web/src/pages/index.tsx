@@ -8,16 +8,16 @@ import { isNetlifyDeployPreview } from "../helpers/is-netlify-deploy-preview";
 import { NotAllowedCard } from "../components/not-allowed-card";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-	const env = await getNetlifyEnv(ctx);
+	const context = await getNetlifyEnv(ctx);
 
-	contextify.initialize(env);
+	contextify.switchContext(context);
 
 	return {
 		props: {},
 	};
 }
 
-function Home() {
+export default function Home() {
 	return (
 		<div>
 			<Head>
@@ -39,5 +39,3 @@ function Home() {
 		</div>
 	);
 }
-
-export default Home;

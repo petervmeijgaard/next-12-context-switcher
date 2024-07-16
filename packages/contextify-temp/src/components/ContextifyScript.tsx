@@ -1,8 +1,8 @@
 import { BROWSER_CONTEXT_KEY } from "../constants.js";
-import { env } from "../browser/env.js";
+import { browserContext } from "../state.js";
 
 export function ContextifyScript() {
-	const context = Object.fromEntries(env.entries());
+	const context = Object.fromEntries(browserContext.entries());
 
 	return (
 		<script

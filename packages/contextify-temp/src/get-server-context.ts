@@ -1,6 +1,6 @@
 import { isBrowser } from "./helpers/is-browser.js";
 import { ContextifyError } from "./contextify-error.js";
-import { env } from "./server/env.js";
+import { serverContext } from "./state.js";
 
 export function getServerContext() {
 	if (isBrowser()) {
@@ -9,5 +9,5 @@ export function getServerContext() {
 		);
 	}
 
-	return Object.fromEntries(env.entries());
+	return Object.fromEntries(serverContext.entries());
 }
